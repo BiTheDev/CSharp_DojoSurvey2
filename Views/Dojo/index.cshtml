@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dojo Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/index.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <form action='/created' method='post' id="container" class="bg-primary" >
+         
+       <h1>Dojo Survey</h1>
+       <div>
+       Your name: <input  class="form-control" 
+       type="text" name ="Name" placeholder="Name">
+       </div> 
+       @{ 
+       <div>     
+                <span>Dojo Location</span> 
+                <select name="Location" id="dojo" class="form-control">
+                    @foreach(var item in Model.dojo){
+                   <option name= "Location" value="@item">@item</option>
+                    }
+                </select>
+       </div>    
+       <div>
+            <span>Favorite Language</span> 
+            <select name="Language" id="lang" class="form-control">
+                    @foreach(var item in Model.lang){
+                   <option name="Language" value="@item">@item</option>
+                    }
+            </select>
+       </div>
+        }   
+       <div>
+           <p>Comment (optional): </p>
+           <textarea class="form-control"name='Comment' cols="30" rows="5"></textarea>
+       </div>
+       <input type="submit" id="button" class="btn-secondary" value="Submit"/>
+   </form>
+</body>
+</html>
